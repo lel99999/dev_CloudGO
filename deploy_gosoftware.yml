@@ -1,0 +1,9 @@
+---
+- hosts: gomongoRH7
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: download GO
+      get_url:
+        url: https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz
+        dest: /opt

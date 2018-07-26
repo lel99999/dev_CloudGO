@@ -12,7 +12,7 @@ func AllCRMEndPoint(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintln(w, "not implemented yet !")
 }
 
-func FindMCRMEndpoint(w http.ResponseWriter, r *http.Request) {
+func FindCRMEndpoint(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintln(w, "not implemented yet !")
 }
 
@@ -30,12 +30,12 @@ func DeleteCRMEndPoint(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     r := mux.NewRouter()
-    r.HandleFunc("/CRM", AllCRMsEndPoint).Methods("GET")
+    r.HandleFunc("/CRM", AllCRMEndPoint).Methods("GET")
     r.HandleFunc("/CRM", CreateCRMEndPoint).Methods("POST")
     r.HandleFunc("/CRM", UpdateCRMEndPoint).Methods("PUT")
     r.HandleFunc("/CRM", DeleteCRMEndPoint).Methods("DELETE")
     r.HandleFunc("/CRM/{id}", FindCRMEndpoint).Methods("GET")
-    if err := http.ListenAndServe(":3000", r); err != nil {
+    if err := http.ListenAndServe(":3999", r); err != nil {
         log.Fatal(err)
     }
 }
