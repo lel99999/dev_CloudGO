@@ -1,0 +1,17 @@
+---
+- hosts: gomysqlRH7
+  tasks:
+    - name: install mysql repo
+      command: yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+
+    - name: install mysql server 8.0
+      yum:
+        - name: mysql-community-server
+
+    - name: install mysql 5.7
+      command: yum --disablerepo=mysql80-community --enablerepo=mysql57-community install mysql-community-server
+    - name: get generated password
+      command: grep 'A temporary password is generated for root@localhost' /var/log/mysqld.log |tail -1
+      register: mysqlgen_pwd
+
+    - debug: var={{ mysqlgen_pwd.stdout }}
