@@ -65,3 +65,12 @@ func CreateCRMEndPoint(w http.ResponseWriter, r *http.Request) {
 	}
 	respondWithJson(w, http.StatusCreated, contact)
 }
+
+func AllCRMEndPoint(w http.ResponseWriter, r *http.Request) {
+	contacts, err := dao.FindAll()
+	if err != nil {
+		respondWithError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	respondWithJson(w, http.StatusOK, contacts)
+}
