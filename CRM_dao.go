@@ -50,3 +50,18 @@ func (c *CRMDAO) Update(contact Contact) error{
   err := db.C(COLLECTION).UpdateId(contact.ID, &contact)
   return err
 }
+
+func CreateCRMEndPoint(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	var contact Contact
+	if err := json.NewDecoder(r.Body).Decode(&contact); err != nil {
+		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
+		return
+	}
+	contact.ID = bson.NewObjectId()
+	if err := dao.Insert(contact); err != nil {
+		respondWithError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	respondWithJson(w, http.StatusCreated, contact)
+}
