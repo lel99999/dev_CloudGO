@@ -1,6 +1,6 @@
 # go_cloud
-___
-Preliminary Perusals and Experiments with Go for Cloud Apps
+Rethinking the building of cloud native ecosystems
+_ _ _
 
 To view GO documentation locally in a web browser:
 
