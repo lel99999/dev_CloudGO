@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "gomongoRH7" do |gomongoRH7|
 #   gomongoRH7.vm.box = "generic/rhel7"
-    gomongoRH7.vm.box = "iamseth/rhel-7.3"
+    gomongoRH7.vm.box = "clouddood/RH7.5_baserepo"
     #gomongoRH7.vm.box = "javier-lopez/rhel-7.4"
     #gomongoRH7.vm.box = "xianlin/rhel-7.4"
     gomongoRH7.vm.hostname = "gomongoRH7"
@@ -25,7 +25,8 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define "gomysqlRH7" do |gomongoRH7|
 #   gomysqlRH7.vm.box = "generic/rhel7"
-    gomysqlRH7.vm.box = "iamseth/rhel-7.3"
+#   gomysqlRH7.vm.box = "iamseth/rhel-7.3"
+    gomysqlRH7.vm.box = "clouddood/RH7.5_baserepo"
     #gomysqlRH7.vm.box = "javier-lopez/rhel-7.4"
     #gomysqlRH7.vm.box = "xianlin/rhel-7.4"
     gomysqlRH7.vm.hostname = "gomysqlRH7"
