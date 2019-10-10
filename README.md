@@ -22,6 +22,8 @@ $brew info bazaar
 $brew install go
 
 #### Set up GOPATH
+export GOPATH="${HOME}/.go"
 
 #### Set up GOROOT
-$export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
