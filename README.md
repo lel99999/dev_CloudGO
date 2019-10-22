@@ -18,12 +18,15 @@ $brew info git
 $brew info mercurial
 $brew info bazaar
 
-### Setup GO
+### Install GO on Mac OSX with Homebrew
 $brew install go
 
-#### Set up GOPATH
+#### Set up GO workspace - set up GOPATH
 export GOPATH="${HOME}/.go"
 
 #### Set up GOROOT
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+#### Get golint a static analysis tool
+$go get -u github.com/golang/lint/golint
